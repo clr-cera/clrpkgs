@@ -4,9 +4,10 @@
 , makeWrapper
 , wget
 , unzip
+, writeText
 }:
 
-stdenv.mkDerivation rec {
+stdenv.mkDerivation {
   pname = "pokemmo-installer";
   version = "1.0.0";
 
@@ -17,12 +18,10 @@ stdenv.mkDerivation rec {
     unzip
   ];
 
+  dontUnpack = true;
 
-
-  buildPhase = ''
-  touch pokemmo-installer
-  chmod +x pokemmo-installer
-  echo "# Unninstall
+  pokemmoinstallertext = writeText "pokemmo-installer" ''
+# Unninstall
 for c in "$@"
 do
   if [ "$c" == "-u" ]; 
@@ -71,22 +70,32 @@ rm pokemmo.desktop
 # Execution Script
 touch pokemmo
 
-echo "cd ~/.local/share/pokemmo/
+echo "export PATH="${jdk17.out}/bin:"
+cd ~/.local/share/pokemmo/
 exec ./PokeMMO.sh" >> pokemmo
 
 chmod +x pokemmo
 cp pokemmo ~/.local/bin/
-rm pokemmo" >> pokemmo-installer
+rm pokemmo
   '';
 
+
+  buildPhase = ''
+    cp $pokemmoinstallertext pokemmo-installer
+    chmod +x pokemmo-installer 
+    '';
+
   installPhase = ''
-    mkdir -p $out/{bin, share}
-    cp -r . "$out/share/${pname}"
-    ln -s $out/share/${pname}/pokemmo-installer $out/bin/pokemmo-installer 
+    mkdir -p $out/bin
+    mkdir -p $out/share
+    
+    cp pokemmo-installer $out/share/pokemmo-installer
+    ls $out/share/
+    ln -s $out/share/pokemmo-installer $out/bin/pokemmo-installer 
   '';
 
     postFixup = ''
-    wrapProgram $out/bin/pokemmo --prefix PATH : ${lib.makeBinPath [ wget unzip ]}
+    wrapProgram $out/bin/pokemmo-installer --prefix PATH : ${lib.makeBinPath [ wget unzip ]}
   '';
 
   meta = with lib; {
