@@ -47,7 +47,7 @@ rm pokemmo.zip
 
 # Icons
 mkdir -p ~/.local/share/icons/hicolor/128x128/apps
-cp ~/.local/share/pokemmo/data/icons/128x128.png ~/.local/share/icons/hicolor/128x128/apps/pokemmo.png
+cp -r ~/.local/share/pokemmo/data/icons/128x128.png ~/.local/share/icons/hicolor/128x128/apps/pokemmo.png
 
 # Desktop entry
 touch pokemmo.desktop
@@ -64,7 +64,7 @@ Icon=pokemmo
 Categories=Games;
 StartupNotify=false
 " >> pokemmo.desktop 
-cp pokemmo.desktop ~/.local/share/applications/
+cp -r pokemmo.desktop ~/.local/share/applications/
 rm pokemmo.desktop
 
 # Execution Script
@@ -75,7 +75,7 @@ cd ~/.local/share/pokemmo/
 exec ./PokeMMO.sh" >> pokemmo
 
 chmod +x pokemmo
-cp pokemmo ~/.local/bin/
+cp -r pokemmo ~/.local/bin/
 rm pokemmo
   '';
 
