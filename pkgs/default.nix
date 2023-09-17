@@ -1,5 +1,6 @@
 { pkgs }: 
 
 {
-  pokemmo = pkgs.callPackage ./pokemmo { };
+# BROKEN
+#  pokemmo = pkgs.callPackage ./pokemmo { };
 }
