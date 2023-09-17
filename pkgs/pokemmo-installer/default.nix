@@ -70,7 +70,7 @@ rm pokemmo.desktop
 # Execution Script
 touch pokemmo
 
-echo "export PATH="${jdk17.out}/bin:"
+echo "export PATH="${jdk17.out}/bin:$PATH"
 cd ~/.local/share/pokemmo/
 exec ./PokeMMO.sh" >> pokemmo
 
