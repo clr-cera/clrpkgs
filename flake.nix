@@ -7,9 +7,8 @@
   };
 
 
-  outputs = { self, nixpkgs, ... }@inputs:
+  outputs = { nixpkgs, ... }@inputs:
     let
-      inherit (self) outputs;
       forAllSystems = nixpkgs.lib.genAttrs [
         "aarch64-linux"
         "i686-linux"
@@ -24,5 +23,7 @@
         let pkgs = nixpkgs.legacyPackages.${system};
         in import ./pkgs { inherit pkgs; }
       );
+
+      overlays = import ./overlays {inherit inputs;};
     };
 }
