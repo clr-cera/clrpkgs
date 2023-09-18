@@ -38,11 +38,11 @@ done
 wget -O pokemmo.zip https://dl.pokemmo.com/PokeMMO-Client.zip
 
 # Moving to local
-mkdir ~/.local/share/pokemmo/
+mkdir -p ~/.local/share/pokemmo/
 cp -r pokemmo.zip ~/.local/share/pokemmo/
 rm pokemmo.zip
 cd ~/.local/share/pokemmo/
-unzip pokemmo.zip
+unzip -qq pokemmo.zip
 rm pokemmo.zip
 
 # Icons
@@ -64,6 +64,7 @@ Icon=pokemmo
 Categories=Games;
 StartupNotify=false
 " >> pokemmo.desktop 
+mkdir -p ~/.local/share/applications/ 
 cp -r pokemmo.desktop ~/.local/share/applications/
 rm pokemmo.desktop
 
@@ -75,8 +76,11 @@ cd ~/.local/share/pokemmo/
 exec ./PokeMMO.sh" >> pokemmo
 
 chmod +x pokemmo
+mkdir -p ~/.local/bin/
 cp -r pokemmo ~/.local/bin/
 rm pokemmo
+
+echo "PokeMMO has been Installed!" 
   '';
 
 
