@@ -3,7 +3,7 @@
     
     itch = prev.itch.overrideAttrs (oldAttrs: {
       desktopItems = [
-        (pkgs.makeDesktopItem {
+        (makeDesktopItem {
           name = "itch";
           exec = "itch --no-sandbox";
           tryExec = "itch";
