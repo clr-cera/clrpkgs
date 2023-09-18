@@ -5,7 +5,7 @@
       desktopItems = [
         (pkgs.makeDesktopItem {
           name = "itch";
-          exec = "itch %U";
+          exec = "itch --no-sandbox";
           tryExec = "itch";
           icon = "itch";
           desktopName = "itch";
