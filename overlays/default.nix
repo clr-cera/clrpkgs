@@ -1,9 +1,13 @@
-{ pkgs, ... }: {
+{ inputs, ... }: {
   modifications = final: prev: {
     
-    itch = prev.itch.overrideAttrs (oldAttrs: {
+    itch = prev.itch.overrideAttrs (oldAttrs: 
+    let
+      pkgs = inputs.nixpkgs.legacyPackages.x86_64-linux;
+    in
+    {
       desktopItems = [
-        (makeDesktopItem {
+        (pkgs.makeDesktopItem {
           name = "itch";
           exec = "itch --no-sandbox";
           tryExec = "itch";
