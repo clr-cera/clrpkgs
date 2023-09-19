@@ -4,6 +4,16 @@
   inputs = {
     # Nixpkgs
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    
+    # Flake-utils
+    flake-utils.url = "github:numtide/flake-utils";
+
+    # Spicetify!
+    spicetify-nix.inputs = {
+      url = "github:the-argus/spicetify-nix";
+      nixpkgs.follows = "nixpkgs";
+      flake-utils.follows = "flake-utils";
+    };
   };
 
 
@@ -25,5 +35,7 @@
       );
 
       overlays = import ./overlays {inherit inputs;};
+
+      rices = import ./rices {inherit inputs;};
     };
 }
