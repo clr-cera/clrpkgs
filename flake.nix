@@ -8,16 +8,24 @@
     # Flake-utils
     flake-utils.url = "github:numtide/flake-utils";
 
+    # Home-Manager! 
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    
     # Spicetify!
-    spicetify-nix.inputs = {
+    spicetify-nix = {
       url = "github:the-argus/spicetify-nix";
-      nixpkgs.follows = "nixpkgs";
-      flake-utils.follows = "flake-utils";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        flake-utils.follows = "flake-utils";
+      };
     };
   };
 
 
-  outputs = { nixpkgs, ... }@inputs:
+  outputs = { nixpkgs, home-manager, ... }@inputs:
     let
       forAllSystems = nixpkgs.lib.genAttrs [
         "aarch64-linux"
@@ -26,16 +34,21 @@
         "aarch64-darwin"
         "x86_64-darwin"
       ];
+      lib = nixpkgs.lib // home-manager.lib;
     in
      {
+      inherit lib;
 
       packages = forAllSystems (system:
         let pkgs = nixpkgs.legacyPackages.${system};
         in import ./pkgs { inherit pkgs; }
       );
 
-      overlays = import ./overlays {inherit inputs;};
+      rices = forAllSystems (system:
+        let pkgs = nixpkgs.legacyPackages.${system};
+        in import ./rices { inherit inputs pkgs; }
+      );
 
-      rices = import ./rices {inherit inputs;};
+      overlays = import ./overlays {inherit inputs;};
     };
 }

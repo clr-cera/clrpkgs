@@ -1,7 +1,8 @@
 {lib, config, ... }: 
 
 let
-  inherit (lib) mkEnableOption; 
+  inherit (lib) mkEnableOption;
+  
   cfg = config.services.rices;
 in
 {
