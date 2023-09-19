@@ -8,7 +8,7 @@
 }:
 
 stdenv.mkDerivation {
-  pname = "pokemmo-installer";
+  pname = "pokemmo-wrapped";
   version = "1.0.0";
 
   buildInputs = [
@@ -20,7 +20,7 @@ stdenv.mkDerivation {
 
   dontUnpack = true;
 
-  pokemmoinstallertext = writeText "pokemmo-installer" ''
+  pokemmoWrappedText = writeText "pokemmo-wrapped" ''
 # Unninstall
 for c in "$@"
 do
@@ -85,21 +85,21 @@ echo "PokeMMO has been Installed!"
 
 
   buildPhase = ''
-    cp $pokemmoinstallertext pokemmo-installer
-    chmod +x pokemmo-installer 
+    cp $pokemmoWrappedText pokemmo-wrapped
+    chmod +x pokemmo-wrapped
     '';
 
   installPhase = ''
     mkdir -p $out/bin
     mkdir -p $out/share
     
-    cp pokemmo-installer $out/share/pokemmo-installer
+    cp pokemmo-wrapped $out/share/pokemmo-wrapped
     ls $out/share/
-    ln -s $out/share/pokemmo-installer $out/bin/pokemmo-installer 
+    ln -s $out/share/pokemmo-wrapped $out/bin/pokemmo 
   '';
 
     postFixup = ''
-    wrapProgram $out/bin/pokemmo-installer --prefix PATH : ${lib.makeBinPath [ wget unzip ]}
+    wrapProgram $out/bin/pokemmo --prefix PATH : ${lib.makeBinPath [ wget unzip jdk17]}
   '';
 
   meta = with lib; {

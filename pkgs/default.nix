@@ -1,5 +1,5 @@
 { pkgs }: 
 
 {
-  pokemmo-installer = pkgs.callPackage ./pokemmo-installer { };
+  pokemmo-wrapped = pkgs.callPackage ./pokemmo-wrapped { };
 }
