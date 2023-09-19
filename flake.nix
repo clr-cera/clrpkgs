@@ -44,10 +44,7 @@
         in import ./pkgs { inherit pkgs; }
       );
 
-      rices = forAllSystems (system:
-        let pkgs = nixpkgs.legacyPackages.${system};
-        in import ./rices 
-      );
+      rices = import ./rices; 
 
       overlays = import ./overlays {inherit inputs;};
     };
