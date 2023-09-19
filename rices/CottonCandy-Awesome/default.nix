@@ -97,8 +97,5 @@
     
     #GTK icons
     ".local/share/icons/candy-icons".source = config.lib.file.mkOutOfStoreSymlink ./files/candy-icons-master;
-
-    #LightdmWallpaper
-    ".config/Wallpapers/lightdmWallpaper.jpg".source = config.lib.file.mkOutOfStoreSymlink ./wallpapers/cybercity_girl.jpg;
   };
 }
