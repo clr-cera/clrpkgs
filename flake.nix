@@ -46,7 +46,7 @@
 
       rices = forAllSystems (system:
         let pkgs = nixpkgs.legacyPackages.${system};
-        in import ./rices { inherit inputs pkgs; }
+        in import ./rices 
       );
 
       overlays = import ./overlays {inherit inputs;};
