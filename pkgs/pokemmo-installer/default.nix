@@ -47,6 +47,7 @@ do
 done
 
 if [ ! -d "$HOME/.local/share/pokemmo" ]; then
+echo "PokeMMO is not installed. Instalation will start."
 
 # Fetching
 wget -q -O pokemmo.zip https://dl.pokemmo.com/PokeMMO-Client.zip
