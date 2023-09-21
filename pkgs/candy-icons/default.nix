@@ -11,11 +11,13 @@ stdenv.mkDerivation {
 
   src = fetchzip {
     url = "https://codeload.github.com/EliverLara/candy-icons/zip/refs/heads/master";
-    sha256 = "sha256-OkRpDPOgFKKpZO/8K7qA3WiLN7nbV0UbV+EMUBMWA70";
+    sha256 = "sha256-T3kBW66+ZYAm4J3PALrHntTFF6C/Obdt8oZPKHB3emE";
     stripRoot = false;
+    extension = "zip";
   };
 
   installPhase = ''
+    mv ./candy-icons-master ./candy-icons
     mkdir -p $out/share/icons
     cp -r . $out/share/icons
   '';

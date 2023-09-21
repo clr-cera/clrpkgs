@@ -25,7 +25,7 @@
   };
 
 
-  outputs = { nixpkgs, home-manager, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, ... }@inputs:
     let
       forAllSystems = nixpkgs.lib.genAttrs [
         "aarch64-linux"
@@ -35,9 +35,11 @@
         "x86_64-darwin"
       ];
       lib = nixpkgs.lib // home-manager.lib;
+      clr = forAllSystems (sys: self.packages.sys);
+ 
     in
      {
-      inherit lib;
+      inherit lib clr;
 
       packages = forAllSystems (system:
         let pkgs = nixpkgs.legacyPackages.${system};
