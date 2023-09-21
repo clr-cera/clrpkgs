@@ -34,13 +34,10 @@
         "aarch64-darwin"
         "x86_64-darwin"
       ];
-      lib = nixpkgs.lib // home-manager.lib;
       clr = forAllSystems (sys: self.packages.sys);
  
     in
      {
-      inherit lib clr;
-
       packages = forAllSystems (system:
         let pkgs = nixpkgs.legacyPackages.${system};
         in import ./pkgs { inherit pkgs; }
