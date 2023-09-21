@@ -34,8 +34,6 @@
         "aarch64-darwin"
         "x86_64-darwin"
       ];
-      clr = forAllSystems (sys: self.packages.sys);
- 
     in
      {
       packages = forAllSystems (system:
