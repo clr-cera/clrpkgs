@@ -1,5 +1,3 @@
-# This package didnt work because it the game needs writing on itself.
-
 { stdenv
 , lib
 , fetchzip
