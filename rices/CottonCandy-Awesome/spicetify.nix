@@ -15,26 +15,26 @@ in
     colorScheme = "custom";
     
     customColorScheme = {
-      button        = "e0af68";
+      button        = "f9afe8";
       sidebar       = "1a1b26";
       player        = "1a1b26";
       main          = "1a1b26";
-      button-active = "e0af68";
+      button-active = "f9afe8";
       text          = "c0caf5";
       subtext            = "9aa5ce";
       button-text        = "c0caf5";
       card               = "1a1b26";
       shadow             = "1a1b26";
       selected-row       = "c0caf5";
-      sub-button         = "e0af68";
-      button-disabled    = "e0af68";
+      sub-button         = "f9afe8";
+      button-disabled    = "f9afe8";
       sidebar-button     = "8c4351";
-      play-button        = "e0af68";
-      tab-active         = "e0af68";
-      notification       = "e0af68";
-      notification-error = "e0af68";
-      playback-bar       = "e0af68";
-      misc               = "e0af68";
+      play-button        = "f9afe8";
+      tab-active         = "f9afe8";
+      notification       = "f9afe8";
+      notification-error = "f9afe8";
+      playback-bar       = "f9afe8";
+      misc               = "f9afe8";
     };
 
     enabledExtensions = with spicePkgs.extensions; [
