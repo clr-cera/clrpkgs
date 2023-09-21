@@ -28,6 +28,7 @@
 	zathura
   lxappearance
   clr.candy-icons
+  clr.tokyo-night-gtk-stronk
 
 	(pkgs.nerdfonts.override { fonts = 
 	[ 

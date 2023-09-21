@@ -1,4 +1,4 @@
-{ pkgs, config,... }:
+{ clr, pkgs, config,... }:
 
 {
   imports = [
@@ -27,6 +27,8 @@
 	hyfetch
 	zathura
   lxappearance
+  clr.candy-icons
+  clr.tokyo-night-gtk-stronk
 
 	(pkgs.nerdfonts.override { fonts = 
 	[ 
@@ -92,7 +94,5 @@
     #betterdiscord
     ".config/BetterDiscord/themes/neo-tokyo-night.theme.css".source = config.lib.file.mkOutOfStoreSymlink ./files/BetterDiscord/themes/neo-tokyo-night.theme.css;
     
-    #GTK theme
-    ".local/share/themes/TokyoNight".source = config.lib.file.mkOutOfStoreSymlink ./files/TokyoNight-GTK;
- };
+  };
 }
