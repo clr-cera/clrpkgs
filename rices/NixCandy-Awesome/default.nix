@@ -1,7 +1,8 @@
 {
-  clr,
+  system,
   pkgs,
   config,
+  inputs,
   ...
 }: {
   imports = [
@@ -27,8 +28,8 @@
     hyfetch
     zathura
     lxappearance
-    clr.candy-icons
-    clr.tokyo-night-gtk-stronk
+    inputs.clrpkgs.packages.${system}.candy-icons
+    inputs.clrpkgs.packages.${system}.tokyo-night-gtk-stronk
 
     (pkgs.nerdfonts.override {fonts = [
       "FiraCode"
