@@ -25,4 +25,17 @@ All overlays I make are inside the overlays output, to add them to your overlays
   };
 ```
 ## Rices
-I like to customize my graphical interfaces sometimes... , these customization modules are under rices output, all that is needed to integrate them with your home is just importing the module:
+I like to customize my graphical interfaces sometimes... , these customization modules are under rices output, all that is needed to integrate them with your home is just importing the module and inform your system:
+```nix
+    homeConfigurations = {
+      "User@Host" =
+        home-manager.lib.homeManagerConfiguration
+        {
+          pkgs = nixpkgs.legacyPackages.${yourSystem};
+          extraSpecialArgs = let
+            system = "${yourSystem}";
+          in {inherit inputs outputs system};
+          modules = [./homePath inputs.clrpkgs.rices.${riceName}];
+        };
+    };
+```
