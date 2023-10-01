@@ -1,8 +1,8 @@
-{ lib
-, stdenvNoCC
-, fetchFromGitHub
+{
+  lib,
+  stdenvNoCC,
+  fetchFromGitHub,
 }:
-
 stdenvNoCC.mkDerivation {
   pname = "tokyo-night-gtk-stronk";
   version = "2022.08.11";

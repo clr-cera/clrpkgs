@@ -1,8 +1,8 @@
-{ stdenv
-, lib
-, fetchzip
+{
+  stdenv,
+  lib,
+  fetchzip,
 }:
-
 stdenv.mkDerivation {
   pname = "candy-icons";
   version = "2023-09-19";
@@ -19,7 +19,6 @@ stdenv.mkDerivation {
     mkdir -p $out/share/icons
     cp -r . $out/share/icons
   '';
-
 
   meta = with lib; {
     homepage = "https://github.com/EliverLara/candy-icons";

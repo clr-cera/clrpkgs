@@ -1,13 +1,13 @@
-{ stdenv
-, lib
-, jdk17
-, makeWrapper
-, wget
-, unzip
-, writeText
-, makeDesktopItem
+{
+  stdenv,
+  lib,
+  jdk17,
+  makeWrapper,
+  wget,
+  unzip,
+  writeText,
+  makeDesktopItem,
 }:
-
 stdenv.mkDerivation rec {
   pname = "pokemmo-installer";
   version = "1.0.0";
@@ -28,84 +28,83 @@ stdenv.mkDerivation rec {
       exec = "pokemmo";
       comment = meta.description;
       icon = "pokemmo";
-      categories = [ "Game" ];
+      categories = ["Game"];
     })
   ];
 
   pokemmoWrappedText = writeText "pokemmo-wrapped" ''
-# Unninstall
-for c in "$@"
-do
-  if [ "$c" == "-u" ]; 
-  then
-  rm -r ~/.local/share/pokemmo/ 
-  rm -r ~/.local/share/icons/hicolor/128x128/apps/pokemmo.png
-  rm -r ~/.local/share/applications/pokemmo.desktop
+    # Unninstall
+    for c in "$@"
+    do
+      if [ "$c" == "-u" ];
+      then
+      rm -r ~/.local/share/pokemmo/
+      rm -r ~/.local/share/icons/hicolor/128x128/apps/pokemmo.png
+      rm -r ~/.local/share/applications/pokemmo.desktop
 
-  exit 0
-  fi
-done
+      exit 0
+      fi
+    done
 
-if [ ! -d "$HOME/.local/share/pokemmo" ]; then
-echo "PokeMMO is not installed. Instalation will start."
+    if [ ! -d "$HOME/.local/share/pokemmo" ]; then
+    echo "PokeMMO is not installed. Instalation will start."
 
-# Fetching
-wget -q -O pokemmo.zip https://dl.pokemmo.com/PokeMMO-Client.zip
+    # Fetching
+    wget -q -O pokemmo.zip https://dl.pokemmo.com/PokeMMO-Client.zip
 
-# Moving to local
-mkdir -p ~/.local/share/pokemmo/
-cp -r pokemmo.zip ~/.local/share/pokemmo/
-rm pokemmo.zip
-cd ~/.local/share/pokemmo/
-unzip -qq pokemmo.zip
-rm pokemmo.zip
+    # Moving to local
+    mkdir -p ~/.local/share/pokemmo/
+    cp -r pokemmo.zip ~/.local/share/pokemmo/
+    rm pokemmo.zip
+    cd ~/.local/share/pokemmo/
+    unzip -qq pokemmo.zip
+    rm pokemmo.zip
 
-# Icons
-mkdir -p ~/.local/share/icons/hicolor/128x128/apps
-cp -r ~/.local/share/pokemmo/data/icons/128x128.png ~/.local/share/icons/hicolor/128x128/apps/pokemmo.png
+    # Icons
+    mkdir -p ~/.local/share/icons/hicolor/128x128/apps
+    cp -r ~/.local/share/pokemmo/data/icons/128x128.png ~/.local/share/icons/hicolor/128x128/apps/pokemmo.png
 
-# Desktop entry
-touch pokemmo.desktop
-echo "[Desktop Entry]
-Name=PokeMMO
-GenericName=Text Editor
-Comment=MMO based on the Pokémon Universe
-TryExec=pokemmo
-Exec=pokemmo
-Terminal=false
-Type=Application
-Keywords=game;pokemon;
-Icon=pokemmo
-Categories=Games;
-StartupNotify=false
-" >> pokemmo.desktop 
-mkdir -p ~/.local/share/applications/ 
-cp -r pokemmo.desktop ~/.local/share/applications/
-rm pokemmo.desktop
+    # Desktop entry
+    touch pokemmo.desktop
+    echo "[Desktop Entry]
+    Name=PokeMMO
+    GenericName=Text Editor
+    Comment=MMO based on the Pokémon Universe
+    TryExec=pokemmo
+    Exec=pokemmo
+    Terminal=false
+    Type=Application
+    Keywords=game;pokemon;
+    Icon=pokemmo
+    Categories=Games;
+    StartupNotify=false
+    " >> pokemmo.desktop
+    mkdir -p ~/.local/share/applications/
+    cp -r pokemmo.desktop ~/.local/share/applications/
+    rm pokemmo.desktop
 
-echo "PokeMMO has been Installed!" 
-fi
+    echo "PokeMMO has been Installed!"
+    fi
 
-cd ~/.local/share/pokemmo
-./PokeMMO.sh
+    cd ~/.local/share/pokemmo
+    ./PokeMMO.sh
   '';
-
 
   buildPhase = ''
     cp $pokemmoWrappedText pokemmo-wrapped
     chmod +x pokemmo-wrapped
-    '';
+  '';
 
   installPhase = ''
     mkdir -p $out/bin
     mkdir -p $out/share
 
     cp pokemmo-wrapped $out/share/pokemmo-wrapped
-    ln -s $out/share/pokemmo-wrapped $out/bin/pokemmo 
+    ln -s $out/share/pokemmo-wrapped $out/bin/pokemmo
   '';
 
-    postFixup = ''
-    wrapProgram $out/bin/pokemmo --prefix PATH : ${lib.makeBinPath [ wget unzip jdk17]}
+  postFixup = ''
+    wrapProgram $out/bin/pokemmo --prefix PATH : ${lib.makeBinPath [wget unzip jdk17]}
   '';
 
   meta = with lib; {
