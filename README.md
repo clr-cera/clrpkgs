@@ -25,7 +25,7 @@ nixpkgs = {
 };
 ```
 ## Risotti
-I like to customize my graphical interfaces sometimes... , these customization modules are under rices output, all that is needed to integrate them with your home is just importing the module and inform your system:
+I like to customize my graphical interfaces sometimes... , these customization modules are under risotti output, all that is needed to integrate them with your home is just importing the module and inform your system:
 ```nix
 homeConfigurations = {
   "User@Host" =
