@@ -1,5 +1,8 @@
 # Risotti
 These modules are all the GUI customizations I have made.
+## General Info
+All customizations have a wallpapers directory inside them.
+
 # NixCity
 ## Concept
 ### Cybernetic
