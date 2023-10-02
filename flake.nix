@@ -45,7 +45,7 @@
         import ./pkgs {inherit pkgs;}
     );
 
-    rices = import ./rices;
+    risotti = import ./risotti;
 
     overlays = import ./overlays {inherit inputs;};
   };
