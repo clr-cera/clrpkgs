@@ -24,7 +24,7 @@ nixpkgs = {
   ];
 };
 ```
-## Rices
+## Risotti
 I like to customize my graphical interfaces sometimes... , these customization modules are under rices output, all that is needed to integrate them with your home is just importing the module and inform your system:
 ```nix
 homeConfigurations = {
@@ -35,7 +35,7 @@ homeConfigurations = {
       extraSpecialArgs = let
         system = "${yourSystem}";
       in {inherit inputs outputs system};
-      modules = [./homePath inputs.clrpkgs.rices.${riceName}];
+      modules = [./homePath inputs.clrpkgs.risotti.${riceName}];
     };
 };
 ```
