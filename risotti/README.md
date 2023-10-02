@@ -19,7 +19,7 @@ For the colorscheme I used Enkia's Tokyo Night, with the accent being on the pur
 ### Sweet
 The idea is to partially adapt NixCity's UI to [Wacca](https://www.pixiv.net/en/users/46612726)'s colorscheme, with a cozier pink and blue.
 ## Preview
-
+![Alt text](NixCandy-Awesome/showcase/NixCandyFront.png?raw=true "Title")
 ## Modules
 - Awesomewm - risotti.nixCandyAwesome
 
