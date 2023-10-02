@@ -2,7 +2,7 @@
 [![FlakeHub](https://img.shields.io/endpoint?url=https://flakehub.com/f/clr-cera/clrpkgs/badge)](https://flakehub.com/flake/clr-cera/clrpkgs)
 
 This is my collection of nix stuff!
-# Adding it to your flake
+## Adding it to your flake
 
 Add clrpkgs to your `flake.nix`:
 ```nix
