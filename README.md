@@ -25,6 +25,7 @@ nixpkgs = {
 };
 ```
 ## Risotti
+![Alt text](risotti/NixCity-Awesome/showcase/NixCityAwesomeFront.png?raw=true "Title")
 I like to customize my graphical interfaces sometimes... , these customization modules are under risotti output, all that is needed to integrate them with your home is just importing the module and inform your system:
 ```nix
 homeConfigurations = {
