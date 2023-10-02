@@ -39,3 +39,4 @@ homeConfigurations = {
     };
 };
 ```
+You can see all customizations here: [Rissoti](risotti/README.md).
