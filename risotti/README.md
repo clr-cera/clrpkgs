@@ -7,7 +7,7 @@ The intention is to replicate the feeling of living in a metropole with technolo
 
 For the colorscheme I used Enkia's Tokyo Night, with the accent being on the purple #bb9af7, and general text/buttons on the orange #e0af68.
 ## Preview
-
+![Alt text](NixCity-Awesome/showcase/NixCityAwesomeFront.png?raw=true "Title")
 ## Modules
 - Awesomewm - risotti.nixCityAwesome
 
