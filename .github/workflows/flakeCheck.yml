@@ -4,8 +4,8 @@ on:
     branches: [main]
 
 jobs:
-  nix-build:
-    name: Build
+  nix-check:
+    name: Check
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v3
