@@ -25,5 +25,6 @@ stdenv.mkDerivation {
     description = "Sweet gradient icons";
     license = licenses.gpl3Only;
     platforms = platforms.linux;
+    maintainers = with maintainers; [ clr-cera ];
   };
 }
