@@ -24,6 +24,6 @@ stdenv.mkDerivation {
     homepage = "https://github.com/EliverLara/candy-icons";
     description = "Sweet gradient icons";
     license = licenses.gpl3Only;
-    platforms = platforms.all;
+    platforms = platforms.linux;
   };
 }

@@ -24,6 +24,6 @@ stdenvNoCC.mkDerivation {
     description = "Dark theme for GTK based on the Tokyo Night vscode theme";
     homepage = "https://github.com/stronk-dev/Tokyo-Night-Linux";
     license = licenses.gpl3Only;
-    platforms = platforms.all;
+    platforms = platforms.linux;
   };
 }
