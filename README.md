@@ -14,7 +14,7 @@ All packages I make are inside the packages output, installing a package is as e
 ```nix
 environment.systemPackages = [inputs.clrpkgs.packages.${system}.${packageName}];
 ```
-You can see all packages `here`.
+You can see all packages [`here`](pkgs/README.md).
 ## 📥 Overlays
 All overlays I make are inside the overlays output, to add them to your overlays, you just need to add this to your nix configuration:
 ```nix
@@ -24,7 +24,7 @@ nixpkgs = {
   ];
 };
 ```
-You can see all overlays `here`.
+You can see all overlays [`here`](overlays/README.md).
 ## 🍚 Risotti
 ![Alt text](risotti/NixCity-Awesome/showcase/NixCityAwesomeFront.png?raw=true "Title")
 I like to customize my graphical interfaces sometimes... , these customization modules are under risotti output, all that is needed to integrate them with your home is just importing the module and tell it your system:
