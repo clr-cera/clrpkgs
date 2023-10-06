@@ -3,4 +3,4 @@
 - PokeMMO-Installer - `pokemmo-installer`
 ### Customization
 - Candy Icons - `candy-icons`
-- Tokyo Night GTK theme from Stronk-Dev - `tokyo-night-gtk-stronk`
+- Tokyo Night GTK theme from stronk-dev - `tokyo-night-gtk-stronk`
