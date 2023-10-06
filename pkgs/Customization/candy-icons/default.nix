@@ -15,8 +15,8 @@ stdenv.mkDerivation {
   };
   
   installPhase = ''
-    mkdir -p $out/share/icons
-    cp -r . $out/share/icons
+    mkdir -p $out/share/icons/candy-icons
+    cp -r . $out/share/icons/candy-icons
   '';
 
   meta = with lib; {
