@@ -1,21 +1,20 @@
 {
   stdenv,
   lib,
-  fetchzip,
+  fetchFromGitHub,
 }:
 stdenv.mkDerivation {
   pname = "candy-icons";
-  version = "2023-09-19";
+  version = "2023-10-03";
 
-  src = fetchzip {
-    url = "https://codeload.github.com/EliverLara/candy-icons/zip/refs/heads/master";
-    sha256 = "sha256-T3kBW66+ZYAm4J3PALrHntTFF6C/Obdt8oZPKHB3emE";
-    stripRoot = false;
-    extension = "zip";
+  src = fetchFromGitHub {
+    owner = "EliverLara";
+    repo = "candy-icons";
+    rev = "bcf24f3308cc5e39f3e7d1bb43cb26f627f9ba8f";
+    sha256 = "sha256-NCXxH04GvrPE5mQO7JrU6SkjA+BaZokhyjKsm8m9p3g=";
   };
-
+  
   installPhase = ''
-    mv ./candy-icons-master ./candy-icons
     mkdir -p $out/share/icons
     cp -r . $out/share/icons
   '';
@@ -23,7 +22,8 @@ stdenv.mkDerivation {
   meta = with lib; {
     homepage = "https://github.com/EliverLara/candy-icons";
     description = "Sweet gradient icons";
-    license = licenses.gpl3Only;
+    longDescription = "An icon theme colored with sweet gradients";
+    license = licenses.gpl3;
     platforms = platforms.linux;
     maintainers = with maintainers; [ clr-cera ];
   };
