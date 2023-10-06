@@ -47,7 +47,7 @@
 (defwidget github []
   (box
     (eventbox
-      :onclick "xdg-open https://github.com/clr-cera"
+      :onclick "xdg-open https://$GITHUBLINK"
       (image
         :path "./assets/github.svg"
       )
@@ -267,12 +267,12 @@
 
 (defwindow bar
            :monitor 0
-           :geometry (geometry :x "-10px"
+           :geometry (geometry :x "-30px"
                                :y "5%"
                                :width "40px"
                                :height "90%"
                                :anchor "top right" )
 
-           :reserve (struts :distance "50px" :side "right")
+           :reserve (struts :distance "70px" :side "right")
   
 (bar))

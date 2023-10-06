@@ -47,7 +47,7 @@
 (defwidget github []
   (box
     (eventbox
-      :onclick "xdg-open https://github.com/clr-cera"
+      :onclick "xdg-open https://$GITHUBLINK"
       (image
         :path "./assets/github.svg"
       )
