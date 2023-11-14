@@ -82,7 +82,9 @@
 
     #rofi
     ".config/rofi/".source = config.lib.file.mkOutOfStoreSymlink ./files/rofi;
-
+    
+    #rofi
+    ".config/zellij/".source = config.lib.file.mkOutOfStoreSymlink ./files/zellij;
     #zathura
     ".config/zathura/".source = config.lib.file.mkOutOfStoreSymlink ./files/zathura;
 
