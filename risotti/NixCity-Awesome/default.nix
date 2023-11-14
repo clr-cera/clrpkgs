@@ -79,6 +79,9 @@
 
     #neofetch
     ".config/neofetch/".source = config.lib.file.mkOutOfStoreSymlink ./files/neofetch;
+    
+    #zellij
+    ".config/zellij/".source = config.lib.file.mkOutOfStoreSymlink ./files/zellij;
 
     #rofi
     ".config/rofi/".source = config.lib.file.mkOutOfStoreSymlink ./files/rofi;
