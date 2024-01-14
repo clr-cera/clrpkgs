@@ -15,7 +15,7 @@
     kitty
     picom
     rofi
-    eww
+    eww-wayland
     alsa-utils
     btop
     ranger
