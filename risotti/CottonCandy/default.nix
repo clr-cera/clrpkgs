@@ -1,7 +1,8 @@
 {
-  clr,
+  system,
   pkgs,
   config,
+  inputs,
   ...
 }: {
   imports = [
@@ -14,7 +15,7 @@
     kitty
     picom
     rofi
-    eww
+    inputs.clrpkgs.packages.${system}.eww-double
     alsa-utils
     btop
     ranger
@@ -27,8 +28,8 @@
     hyfetch
     zathura
     lxappearance
-    clr.candy-icons
-    clr.tokyo-night-gtk-stronk
+    inputs.clrpkgs.packages.${system}.candy-icons
+    inputs.clrpkgs.packages.${system}.tokyo-night-gtk-stronk
 
     (pkgs.nerdfonts.override {fonts = [
       "FiraCode"
@@ -50,6 +51,9 @@
   home.file = {
     #awesome
     ".config/awesome/".source = config.lib.file.mkOutOfStoreSymlink ./files/awesome;
+    
+    #hyprland
+    ".config/hypr/hyprland.conf".source = config.lib.file.mkOutOfStoreSymlink ./files/hypr/hyprland.conf;
 
     #picom
     ".config/picom/".source = config.lib.file.mkOutOfStoreSymlink ./files/picom;
@@ -91,5 +95,8 @@
 
     #betterdiscord
     ".config/BetterDiscord/themes/neo-tokyo-night.theme.css".source = config.lib.file.mkOutOfStoreSymlink ./files/BetterDiscord/themes/neo-tokyo-night.theme.css;
+
+    #GTK theme
+    ".local/share/themes/TokyoNight".source = config.lib.file.mkOutOfStoreSymlink ./files/TokyoNight-GTK;
   };
 }
