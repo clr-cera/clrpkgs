@@ -16,22 +16,5 @@
         })
       ];
     });
-
-    eww = prev.eww.overrideAttrs (oldAttrs: let
-      pkgs = inputs.nixpkgs.legacyPackages.x86_64-linux;
-    in {
-      src = pkgs.fetchFromGitHub {
-        owner = "elkowar";
-        repo = "eww";
-        rev = "a9a35c1804d72ef92e04ee71555bd9e5a08fa17e";
-        hash = "sha256-GEysmNDm+olt1WXHzRwb4ZLifkXmeP5+APAN3b81/Og=";
-      };
-      buildFeatures = [
-        "wayland" "x11"
-      ];
-      nativeBuildInputs = with pkgs; [ pkg-config wrapGAppsHook ];
-
-      buildInputs = with pkgs; [ gtk3 librsvg gtk-layer-shell ];
-    });
   };
 }
