@@ -43,7 +43,7 @@ rustPlatform.buildRustPackage rec {
     homepage = "https://github.com/elkowar/eww";
     license = licenses.mit;
     maintainers = with maintainers; [ figsoda lom ];
-    mainProgram = "eww";
+    mainProgram = "eww-double";
     broken = stdenv.isDarwin;
   };
 }
