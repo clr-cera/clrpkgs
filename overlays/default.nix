@@ -16,5 +16,16 @@
         })
       ];
     });
+
+    eww = prev.eww.overrideAttrs (oldAttrs: let
+      pkgs = inputs.nixpkgs.legacyPackages.x86_64-linux;
+    in {
+      buildFeatures = [
+        "wayland" "x11"
+      ];
+      nativeBuildInputs = with pkgs; [ pkg-config wrapGAppsHook ];
+
+      buildInputs = with pkgs; [ gtk3 librsvg gtk-layer-shell ];
+    });
   };
 }
