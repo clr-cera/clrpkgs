@@ -15,7 +15,7 @@
     kitty
     picom
     rofi
-    eww-wayland
+    inputs.clrpkgs.packages.${system}.eww-double
     alsa-utils
     btop
     ranger
