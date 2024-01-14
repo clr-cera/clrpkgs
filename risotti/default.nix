@@ -1,6 +1,5 @@
 {
-  cottonCandyAwesome = import ./CottonCandy-Awesome;
-  nixCityAwesome = import ./NixCity-Awesome;
-  nixCandyAwesome = import ./NixCandy-Awesome;
-  nixCandyHypr = import ./NixCandy-Hypr;
+  cottonCandy = import ./CottonCandy;
+  nixCity = import ./NixCity;
+  nixCandy = import ./NixCandy;
 }
