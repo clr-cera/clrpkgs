@@ -51,6 +51,9 @@
   home.file = {
     #awesome
     ".config/awesome/".source = config.lib.file.mkOutOfStoreSymlink ./files/awesome;
+    
+    #hyprland
+    ".config/hypr/hyprland.conf".source = config.lib.file.mkOutOfStoreSymlink ./files/hypr/hyprland.conf;
 
     #picom
     ".config/picom/".source = config.lib.file.mkOutOfStoreSymlink ./files/picom;
