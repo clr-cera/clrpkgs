@@ -3,5 +3,4 @@
 
   candy-icons = pkgs.callPackage ./Customization/candy-icons {};
   tokyo-night-gtk-stronk = pkgs.callPackage ./Customization/tokyo-night-gtk-stronk {};
-  eww-double = pkgs.callPackage ./Customization/eww-double {};
 }

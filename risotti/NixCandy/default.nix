@@ -15,7 +15,7 @@
     kitty
     picom
     rofi
-    inputs.clrpkgs.packages.${system}.eww-double
+    eww
     alsa-utils
     btop
     ranger
