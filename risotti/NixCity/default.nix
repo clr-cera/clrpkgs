@@ -14,7 +14,7 @@
   home.packages = with pkgs; [
     kitty
     picom
-    rofi
+    rofi-wayland
     eww-wayland
     alsa-utils
     btop
