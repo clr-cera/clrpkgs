@@ -16,5 +16,12 @@
         })
       ];
     });
+    vivaldi = prev.itch.overrideAttrs (oldAttrs: 
+    {
+      postInstall = ''
+        wrapProgram "$out/bin/vivaldi" \
+          --add-flags "--gtk-version=4" \
+      '';
+    });
   };
 }
