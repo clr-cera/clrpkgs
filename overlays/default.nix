@@ -16,7 +16,7 @@
         })
       ];
     });
-    vivaldi = prev.itch.overrideAttrs (oldAttrs: 
+    vivaldi = prev.vivaldi.overrideAttrs (oldAttrs: 
     {
       postInstall = ''
         wrapProgram "$out/bin/vivaldi" \
