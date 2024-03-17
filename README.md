@@ -25,20 +25,3 @@ nixpkgs = {
 };
 ```
 You can see all overlays [`here`](overlays/README.md).
-## 🍚 Risotti
-![Alt text](risotti/NixCity-Awesome/showcase/NixCityAwesomeFront.png?raw=true "Title")
-I like to customize my graphical interfaces sometimes... , these customization modules are under risotti output, all that is needed to integrate them with your home is just importing the module and tell it your system:
-```nix
-homeConfigurations = {
-  "User@Host" =
-    home-manager.lib.homeManagerConfiguration
-    {
-      pkgs = nixpkgs.legacyPackages.${yourSystem};
-      extraSpecialArgs = let
-        system = "${yourSystem}";
-      in {inherit inputs outputs system};
-      modules = [./homePath inputs.clrpkgs.risotti.${riceName}];
-    };
-};
-```
-You can see all customizations [`here`](risotti/README.md).
